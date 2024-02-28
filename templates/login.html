@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5"> <!-- Tempat untuk input username dan password -->
+        <h2>Login</h2>
+
+        <!-- Loop jika user tidak memasukkan username dan password, maka akan menampilkan pesan alert-danger  -->
+        {% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+        {% endif %}
+        <!-- Akhir dari looping -->
+        <form action="/login" method="post"> <!-- Metode POST digunakan jika data yang di input user mengandung hal sensitif seperti password -->
+            <div class="form-group"> <!-- Grup untuk username -->
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group"> <!-- Grup untuk password -->
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button> <!-- Button untuk submit -->
+        </form>
+    </div>
+</body>
+</html>
