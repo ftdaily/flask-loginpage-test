@@ -11,17 +11,14 @@ def home():
 def login():
     username = request.form['username']
     password = request.form['password']
-
-
-    if username == 'admin' and password == 'admin000':
-        return redirect(url_for('success'))
-    else:
-        return render_template('login.html', message='Username dan password salah atau tidak valid!')
+    return redirect(url_for('success'))
 
 #Page jika login berhasil, maka akan berubah routingnya
 @app.route('/success')
 def success():
-    return "Login berhasil, selamat datang, Administrator"
+    return render_template('bs.html')
+
+
 
 
 if __name__ == '__main__':
